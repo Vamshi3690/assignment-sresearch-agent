@@ -35,6 +35,18 @@ Edit `.env` and set `GEMINI_API_KEY` to your Google AI Studio key. The default m
 
 The Markdown brief is written to `output/research_brief.md` by default. Choose another destination with `--output`.
 
+## Judge presentation site
+
+The static, interactive presentation is in `judge-site/`. It explains the agent handoffs, shows the structure of the brief, and includes a copyable judge pitch and demo command. It does not run Gemini in the browser.
+
+To preview it locally on Windows, open PowerShell in `judge-site/` and run:
+
+```powershell
+py -3.13 -m http.server 8000
+```
+
+Then visit `http://localhost:8000` in your browser.
+
 ## Notes
 
 - Live model calls require a valid API key and may incur provider charges.

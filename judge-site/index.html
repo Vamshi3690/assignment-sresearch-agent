@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Assignment Research Agent turns a class prompt into an evidence-linked research brief and student-led outline."
+    />
+    <meta name="theme-color" content="#102b30" />
+    <title>Assignment Research Agent — Start with evidence</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Assignment Research Agent home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none">
+            <path d="M8 26.5 18 8l10 18.5H8Z" stroke="currentColor" stroke-width="2.2" />
+            <circle cx="18" cy="20" r="3.2" fill="currentColor" />
+            <path d="M11.5 26.5h13" stroke="currentColor" stroke-width="2.2" />
+          </svg>
+        </span>
+        <span class="brand-name">Assignment<br />Research Agent</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#workflow">How it works</a>
+        <a href="#brief">The brief</a>
+        <a href="#demo">Judge demo</a>
+      </nav>
+
+      <a class="header-link" href="https://github.com/Vamshi3690/assignment-sresearch-agent" target="_blank" rel="noreferrer">
+        View the project <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> CrewAI · Gemini · Evidence first</div>
+          <h1>Start with a question.<br /><em>Leave with evidence.</em></h1>
+          <p class="hero-lede">
+            Assignment Research Agent helps students move from a class prompt to
+            a research brief they can inspect, question, and build on.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-lime" href="#workflow">Explore the workflow <span aria-hidden="true">↓</span></a>
+            <a class="button button-outline" href="#demo">See the judge demo</a>
+          </div>
+
+          <div class="hero-footnote">
+            <span class="footnote-line"></span>
+            AI for the research process, not a ready-made essay.
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Illustration of three agents creating an evidence-linked research brief">
+          <div class="visual-topline">
+            <span>RESEARCH FLOW <span class="visual-slash">/</span> 01—03</span>
+            <span class="live-indicator"><i></i> TRACEABLE BY DESIGN</span>
+          </div>
+          <div class="question-card">
+            <span class="micro-label">START WITH A PROMPT</span>
+            <p>How does urban green space affect public health?</p>
+            <span class="question-corner" aria-hidden="true">↗</span>
+          </div>
+
+          <div class="flow-stack" aria-hidden="true">
+            <div class="flow-row">
+              <span class="flow-index">01</span>
+              <span class="flow-icon search-icon"><i></i><i></i></span>
+              <span class="flow-name">Search Specialist</span>
+              <span class="flow-detail">finds & checks sources</span>
+              <span class="flow-arrow">↘</span>
+            </div>
+            <div class="flow-row">
+              <span class="flow-index">02</span>
+              <span class="flow-icon synth-icon"><i></i><i></i><i></i></span>
+              <span class="flow-name">Data Synthesizer</span>
+              <span class="flow-detail">maps themes & gaps</span>
+              <span class="flow-arrow">↘</span>
+            </div>
+            <div class="flow-row">
+              <span class="flow-index">03</span>
+              <span class="flow-icon write-icon"><i></i><i></i><i></i></span>
+              <span class="flow-name">Academic Writer</span>
+              <span class="flow-detail">forms a cited brief</span>
+              <span class="flow-arrow">↘</span>
+            </div>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-file-icon" aria-hidden="true">MD</div>
+            <div class="artifact-copy">
+              <span class="micro-label">THE OUTPUT</span>
+              <strong>research_brief.md</strong>
+              <span>Evidence notes · outline · references</span>
+            </div>
+            <span class="artifact-check" aria-hidden="true">✓</span>
+          </div>
+          <div class="visual-caption">A clear path from prompt to a brief the student can verify.</div>
+        </div>
+      </section>
+
+      <section class="principles-bar" aria-label="Project principles">
+        <div><span class="principle-mark">↗</span> Sources stay visible</div>
+        <div><span class="principle-mark">◎</span> Gaps stay honest</div>
+        <div><span class="principle-mark">✳</span> Students stay authors</div>
+      </section>
+
+      <section class="workflow section-wrap" id="workflow">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">01 / THE HANDOFF</div>
+            <h2>Three specialists.<br /><span>One research trail.</span></h2>
+          </div>
+          <p>
+            Each agent has a narrow job. The next one uses the previous work,
+            so the final brief is built from checked sources and an explicit synthesis.
+          </p>
+        </div>
+
+        <div class="workflow-layout">
+          <div class="agent-tabs" role="tablist" aria-label="Meet the three agents">
+            <button class="agent-tab is-active" id="tab-search" type="button" role="tab" aria-selected="true" aria-controls="agent-panel" data-agent="search">
+              <span class="tab-index">01</span><span class="tab-copy"><strong>Search Specialist</strong><small>Find the evidence</small></span><span class="tab-chevron">↗</span>
+            </button>
+            <button class="agent-tab" id="tab-synthesis" type="button" role="tab" aria-selected="false" aria-controls="agent-panel" data-agent="synthesis" tabindex="-1">
+              <span class="tab-index">02</span><span class="tab-copy"><strong>Data Synthesizer</strong><small>Make sense of it</small></span><span class="tab-chevron">↗</span>
+            </button>
+            <button class="agent-tab" id="tab-writer" type="button" role="tab" aria-selected="false" aria-controls="agent-panel" data-agent="writer" tabindex="-1">
+              <span class="tab-index">03</span><span class="tab-copy"><strong>Academic Writer</strong><small>Shape a useful brief</small></span><span class="tab-chevron">↗</span>
+            </button>
+            <div class="handoff-note"><span>↳</span> Sequential CrewAI workflow</div>
+          </div>
+
+          <article class="agent-panel" id="agent-panel" role="tabpanel" aria-labelledby="tab-search" tabindex="0">
+            <div class="panel-topline"><span id="panel-number">AGENT 01</span><span class="panel-chip" id="panel-chip">SOURCE DISCOVERY</span></div>
+            <div class="panel-content">
+              <div class="panel-symbol" id="panel-symbol" aria-hidden="true">⌕</div>
+              <h3 id="panel-title">Search Specialist</h3>
+              <p id="panel-description">
+                Searches for useful public sources, then opens relevant pages to check what they actually say.
+                Search snippets are leads, not evidence.
+              </p>
+              <div class="panel-output">
+                <span class="micro-label">HANDOFF</span>
+                <p id="panel-output">A source list with URLs, visible author and date details, evidence notes, and gaps.</p>
+              </div>
+            </div>
+            <div class="panel-footer"><span class="panel-footer-dot"></span><span id="panel-footer">Search results are verified against page content.</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="brief-section" id="brief">
+        <div class="section-wrap brief-grid">
+          <div class="brief-copy">
+            <div class="section-kicker">02 / THE DELIVERABLE</div>
+            <h2>A research brief<br />you can <span>follow.</span></h2>
+            <p>
+              The output is designed to help students decide what to read, what the
+              evidence suggests, and where their own argument could go.
+            </p>
+            <div class="brief-points">
+              <div><span class="point-check">✓</span><span><strong>Evidence notes</strong><small>Key findings tied to source URLs</small></span></div>
+              <div><span class="point-check">✓</span><span><strong>Themes & disagreements</strong><small>What lines up, what doesn’t, and what’s missing</small></span></div>
+              <div><span class="point-check">✓</span><span><strong>Student-led outline</strong><small>A structure to develop, not an essay to submit</small></span></div>
+            </div>
+          </div>
+
+          <div class="document-preview">
+            <div class="document-chrome">
+              <span class="chrome-dots"><i></i><i></i><i></i></span>
+              <span>OUTPUT PREVIEW <b>·</b> STRUCTURE ONLY</span>
+              <span class="document-type">.MD</span>
+            </div>
+            <div class="document-body">
+              <div class="doc-overline">RESEARCH BRIEF <span>—</span> UNDERGRADUATE</div>
+              <h3>Research question</h3>
+              <p class="doc-placeholder">A concise framing of the assignment topic.</p>
+              <div class="doc-rule"></div>
+              <h4><span>01</span> Evidence themes</h4>
+              <div class="doc-line doc-line-long"></div>
+              <div class="doc-line doc-line-mid"></div>
+              <div class="doc-line doc-line-short"></div>
+              <h4><span>02</span> Open questions</h4>
+              <div class="doc-line doc-line-long"></div>
+              <h4><span>03</span> Outline to develop</h4>
+              <ol class="doc-outline"><li>Frame the question</li><li>Build from the evidence</li><li>Write your own conclusion</li></ol>
+              <div class="doc-reference"><span>REFERENCES</span><span>Titles · authors · URLs</span></div>
+            </div>
+            <div class="preview-disclaimer">Illustrative layout — not a generated research result.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section section-wrap" id="demo">
+        <div class="demo-intro">
+          <div class="section-kicker">03 / THE JUDGE DEMO</div>
+          <h2>Make the handoff<br /><span>easy to see.</span></h2>
+          <p>In the live demo, follow one prompt from the command line to the saved Markdown brief.</p>
+          <div class="demo-cta-row">
+            <a class="button button-dark" href="https://github.com/Vamshi3690/assignment-sresearch-agent" target="_blank" rel="noreferrer">Open the source repo <span aria-hidden="true">↗</span></a>
+            <span class="demo-note">Requires your Gemini key in local <code>.env</code></span>
+          </div>
+        </div>
+
+        <div class="demo-steps">
+          <article class="demo-step">
+            <span class="step-num">01</span>
+            <div><h3>Enter a question</h3><p>Choose a topic, academic level, and citation style.</p></div>
+            <span class="step-visual prompt-visual">“How does urban green space<br />affect public health?”</span>
+          </article>
+          <article class="demo-step">
+            <span class="step-num">02</span>
+            <div><h3>Follow the agents</h3><p>Show how source research becomes themes, gaps, and an outline.</p></div>
+            <span class="step-visual agent-visual"><i>SEARCH</i><b>→</b><i>SYNTHESIZE</i><b>→</b><i>WRITE</i></span>
+          </article>
+          <article class="demo-step">
+            <span class="step-num">03</span>
+            <div><h3>Inspect the brief</h3><p>Open the Markdown output and trace its references back to sources.</p></div>
+            <span class="step-visual file-visual"><span>MD</span> output/research_brief.md</span>
+          </article>
+        </div>
+
+        <div class="command-card">
+          <div class="command-heading"><span class="terminal-mark">$_</span><span>RUN THE LOCAL DEMO</span><span class="command-os">POWERSHELL</span></div>
+          <code id="demo-command">.\.venv\Scripts\python.exe main.py "How does urban green space affect public health?" --level undergraduate --citation-style "APA 7"</code>
+          <button class="copy-button" id="copy-command" type="button" aria-label="Copy the demo command">Copy command <span aria-hidden="true">▢</span></button>
+        </div>
+      </section>
+
+      <section class="pitch-section">
+        <div class="section-wrap pitch-inner">
+          <div class="pitch-heading">
+            <div class="section-kicker">THE 30-SECOND PITCH</div>
+            <h2>Say it <span>simply.</span></h2>
+          </div>
+          <blockquote id="pitch-text">
+            “Assignment Research Agent helps students start with evidence instead of a blank page or an unverified AI essay. Three focused agents find and check sources, synthesize the findings, and turn them into a cited research brief and outline. The result is a research trail students can inspect and build on themselves.”
+          </blockquote>
+          <button class="button button-lime pitch-copy" id="copy-pitch" type="button">Copy pitch <span aria-hidden="true">▢</span></button>
+          <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="closing section-wrap">
+        <div class="closing-mark" aria-hidden="true">↗</div>
+        <div><div class="section-kicker">A BETTER STARTING POINT</div><h2>Not more words.<br /><span>A clearer way to begin.</span></h2></div>
+        <a class="button button-dark" href="https://github.com/Vamshi3690/assignment-sresearch-agent" target="_blank" rel="noreferrer">Explore the project <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="#top">Assignment Research Agent <span>·</span> CrewAI + Gemini</a>
+      <span>Built to help students research with care.</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </body>
+</html>
