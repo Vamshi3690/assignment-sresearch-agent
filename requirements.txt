@@ -1,0 +1,5 @@
+crewai[google-genai]==1.15.33
+ddgs==9.16.1
+beautifulsoup4==4.15.0
+requests==2.34.2
+python-dotenv==1.2.4
